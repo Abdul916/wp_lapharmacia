@@ -1,0 +1,1562 @@
+<?php if ( !defined( 'ABSPATH' ) ) {
+    die;
+} // Cannot access pages directly.
+/*==========================================================================
+THEME BOX OPTIONS
+===========================================================================*/
+if ( !function_exists( 'biolife_theme_options' ) && class_exists( 'OVIC_Options' ) ) {
+    function biolife_theme_options()
+    {
+        $vertical_menu = 'style-02,style-03,style-06,style-07,style-10,style-12,style-13,style-20';
+        $options       = array();
+        // -----------------------------------------
+        // Theme Options              -
+        // -----------------------------------------
+        $options['general_main'] = array(
+            'name'     => 'general_main',
+            'icon'     => 'fa fa-wordpress',
+            'title'    => esc_html__( 'General', 'biolife' ),
+            'sections' => array(
+                array(
+                    'title'  => esc_html__( 'General', 'biolife' ),
+                    'fields' => array(
+                        array(
+                            'id'    => 'logo',
+                            'type'  => 'image',
+                            'title' => esc_html__( 'Logo', 'biolife' ),
+                            'desc'  => esc_html__( 'Setting Logo For Site', 'biolife' ),
+                        ),
+                        array(
+                            'id'      => 'default_color',
+                            'type'    => 'color',
+                            'rgba'    => true,
+                            'default' => '#222',
+                            'title'   => esc_html__( 'Default Color', 'biolife' ),
+                        ),
+                        array(
+                            'id'      => 'main_color',
+                            'type'    => 'color',
+                            'rgba'    => true,
+                            'default' => '#90bf2a',
+                            'title'   => esc_html__( 'Main Color', 'biolife' ),
+                        ),
+                        array(
+                            'id'      => 'main_color_t',
+                            'type'    => 'color',
+                            'rgba'    => true,
+                            'default' => '#fff',
+                            'title'   => esc_html__( 'Main Color - Text Inside', 'biolife' ),
+                            'desc'    => esc_html__( 'Text inside "Boxes has background main color" will has this color', 'biolife' ),
+                        ),
+                        array(
+                            'id'      => 'main_color_2',
+                            'type'    => 'color',
+                            'rgba'    => true,
+                            'default' => '#ffb71a',
+                            'title'   => esc_html__( 'Main Color 2', 'biolife' ),
+                        ),
+                        array(
+                            'id'      => 'main_container',
+                            'type'    => 'slider',
+                            'title'   => esc_html__( 'Main Container', 'biolife' ),
+                            'min'     => 1140,
+                            'max'     => 1920,
+                            'step'    => 10,
+                            'unit'    => esc_html__( 'px', 'biolife' ),
+                            'default' => 1170,
+                        ),
+                        array(
+                            'id'      => 'main_fw',
+                            'type'    => 'select',
+                            'title'   => esc_html__( 'Main Font Weight', 'biolife' ),
+                            'options' => array(
+                                400 => esc_html__( 'Regular', 'biolife' ),
+                                500 => esc_html__( 'Medium', 'biolife' ),
+                                600 => esc_html__( 'Semi-bold', 'biolife' ),
+                                700 => esc_html__( 'Bold', 'biolife' ),
+                            ),
+                            'default' => 600,
+                        ),
+                        array(
+                            'id'      => 'main_tt',
+                            'type'    => 'select',
+                            'title'   => esc_html__( 'Main Text Transform', 'biolife' ),
+                            'options' => array(
+                                ''           => esc_html__( 'None', 'biolife' ),
+                                'capitalize' => esc_html__( 'Capitalize', 'biolife' ),
+                                'uppercase'  => esc_html__( 'Uppercase', 'biolife' ),
+                            ),
+                            'default' => 'uppercase',
+                        ),
+                        array(
+                            'id'      => 'main_bora',
+                            'type'    => 'number',
+                            'title'   => esc_html__( 'Main Border Radius', 'biolife' ),
+                            'min'     => 0,
+                            'unit'    => esc_html__( 'px', 'biolife' ),
+                            'default' => 90,
+                        ),
+                    ),
+                ),
+                array(
+                    'title'  => esc_html__( 'Enable/Disable', 'biolife' ),
+                    'fields' => array(
+                        array(
+                            'id'    => 'disable_equal',
+                            'type'  => 'switcher',
+                            'title' => esc_html__( 'Disable Equal Height', 'biolife' ),
+                        ),
+                        array(
+                            'id'    => 'enable_cache_option',
+                            'type'  => 'switcher',
+                            'title' => esc_html__( 'Enable Cache Options', 'biolife' ),
+                        ),
+                        array(
+                            'id'    => 'disable_gutenberg_scripts',
+                            'type'  => 'switcher',
+                            'title' => esc_html__( 'Disable Gutenberg Scripts', 'biolife' ),
+                        ),
+                        array(
+                            'id'    => 'enable_ajax_comment',
+                            'type'  => 'switcher',
+                            'title' => esc_html__( 'Enable Nav Ajax Comment', 'biolife' ),
+                        ),
+                        array(
+                            'id'      => 'enable_backtotop',
+                            'type'    => 'switcher',
+                            'title'   => esc_html__( 'Enable Back To Top Button', 'biolife' ),
+                            'default' => 1,
+                        ),
+                        array(
+                            'id'      => 'enable_ovic_rtl',
+                            'type'    => 'switcher',
+                            'title'   => esc_html__( 'Enable Ovic RTL', 'biolife' ),
+                            'desc'    =>
+                                '<ul>
+                                    <li>' . esc_html__( 'If RTL Language:', 'biolife' ) . '</li>
+                                    <li>' . esc_html__( '- Sections has class "rtl-bg" will be has rtl background', 'biolife' ) . '</li>
+                                    <li>' . esc_html__( '- Align has direction left/right will be start/end', 'biolife' ) . '</li>
+                                </ul>',
+                            'default' => 1,
+                        ),
+                    ),
+                ),
+                array(
+                    'title'  => esc_html__( 'Sidebar Settings', 'biolife' ),
+                    'fields' => array(
+                        array(
+                            'id'      => 'sidebar_width',
+                            'type'    => 'slider',
+                            'title'   => esc_html__( 'Sidebar Width', 'biolife' ),
+                            'min'     => 200,
+                            'max'     => 500,
+                            'step'    => 1,
+                            'unit'    => esc_html__( 'px', 'biolife' ),
+                            'default' => 270,
+                        ),
+                        array(
+                            'id'      => 'sidebar_space',
+                            'type'    => 'spinner',
+                            'title'   => esc_html__( 'Sidebar Space', 'biolife' ),
+                            'min'     => 0,
+                            'max'     => 200,
+                            'step'    => 1,
+                            'unit'    => 'px',
+                            'default' => 30,
+                        ),
+                        array(
+                            'id'      => 'sidebar_width_tablet',
+                            'type'    => 'slider',
+                            'title'   => esc_html__( 'Sidebar Width Tablet', 'biolife' ),
+                            'desc'    => esc_html__( 'resolution < 1200px', 'biolife' ),
+                            'min'     => 200,
+                            'max'     => 500,
+                            'step'    => 1,
+                            'unit'    => esc_html__( 'px', 'biolife' ),
+                            'default' => 270,
+                        ),
+                        array(
+                            'id'      => 'sidebar_space_tablet',
+                            'type'    => 'spinner',
+                            'title'   => esc_html__( 'Sidebar Space Tablet', 'biolife' ),
+                            'desc'    => esc_html__( 'resolution < 1200px', 'biolife' ),
+                            'min'     => 0,
+                            'max'     => 200,
+                            'step'    => 1,
+                            'unit'    => 'px',
+                            'default' => 30,
+                        ),
+                        array(
+                            'id'    => 'sticky_sidebar',
+                            'type'  => 'switcher',
+                            'title' => esc_html__( 'Sticky Sidebar', 'biolife' ),
+                        ),
+                        array(
+                            'id'           => 'multi_sidebar',
+                            'type'         => 'repeater',
+                            'button_title' => esc_html__( 'Add Sidebar', 'biolife' ),
+                            'title'        => esc_html__( 'Multi Sidebar', 'biolife' ),
+                            'fields'       => array(
+                                array(
+                                    'id'    => 'add_sidebar',
+                                    'type'  => 'text',
+                                    'title' => esc_html__( 'Name Sidebar', 'biolife' ),
+                                ),
+                            ),
+                        ),
+                    ),
+                ),
+                array(
+                    'title'  => esc_html__( 'Popup Newsletter', 'biolife' ),
+                    'fields' => array(
+                        array(
+                            'id'    => 'enable_popup',
+                            'type'  => 'switcher',
+                            'title' => esc_html__( 'Enable Popup', 'biolife' ),
+                        ),
+                        array(
+                            'id'         => 'popup_page',
+                            'type'       => 'select',
+                            'title'      => esc_html__( 'Popup Page', 'biolife' ),
+                            'options'    => 'page',
+                            'multiple'   => true,
+                            'chosen'     => true,
+                            'query_args' => array(
+                                'posts_per_page' => -1,
+                            ),
+                            'desc'       => esc_html__( 'The page popup will be show.', 'biolife' ),
+                        ),
+                        array(
+                            'id'      => 'popup_effect',
+                            'type'    => 'select',
+                            'title'   => esc_html__( 'Popup Effect', 'biolife' ),
+                            'options' => array(
+                                'mfp-zoom-in'         => esc_html__( 'Zoom In', 'biolife' ),
+                                'mfp-newspaper'       => esc_html__( 'Newspaper', 'biolife' ),
+                                'mfp-move-horizontal' => esc_html__( 'Horizontal Move', 'biolife' ),
+                                'mfp-move-from-top'   => esc_html__( 'Move From Top', 'biolife' ),
+                                'mfp-3d-unfold'       => esc_html__( '3D Unfold', 'biolife' ),
+                                'mfp-zoom-out'        => esc_html__( 'Zoom Out', 'biolife' ),
+                            ),
+                            'default' => 'mfp-zoom-in',
+                        ),
+                        array(
+                            'id'    => 'popup_bg',
+                            'type'  => 'image',
+                            'title' => esc_html__( 'Background', 'biolife' ),
+                        ),
+                        array(
+                            'id'    => 'popup_img',
+                            'type'  => 'image',
+                            'title' => esc_html__( 'Image', 'biolife' ),
+                        ),
+                        array(
+                            'id'      => 'popup_text_1',
+                            'type'    => 'text',
+                            'title'   => esc_html__( 'Text 1', 'biolife' ),
+                            'default' => esc_html__( 'SIGN UP FOR OUR NEWSLETTER & PROMOTIONS !', 'biolife' ),
+                        ),
+                        array(
+                            'id'      => 'popup_text_2',
+                            'type'    => 'text',
+                            'title'   => esc_html__( 'Text 2', 'biolife' ),
+                            'default' => esc_html__( 'SALE 20% OFF', 'biolife' ),
+                        ),
+                        array(
+                            'id'      => 'popup_text_3',
+                            'type'    => 'text',
+                            'title'   => esc_html__( 'Text 3', 'biolife' ),
+                            'default' => esc_html__( 'ON YOUR NEXT PURCHASE', 'biolife' ),
+                        ),
+                        array(
+                            'id'      => 'input_placeholder',
+                            'type'    => 'text',
+                            'title'   => esc_html__( 'Input Placeholder', 'biolife' ),
+                            'default' => esc_html__( 'Enter your email address here...', 'biolife' ),
+                        ),
+                        array(
+                            'id'      => 'popup_button',
+                            'type'    => 'text',
+                            'title'   => esc_html__( 'Button', 'biolife' ),
+                            'default' => esc_html__( 'Subscribe & Get our promotion now !', 'biolife' ),
+                        ),
+                        array(
+                            'id'      => 'popup_text_4',
+                            'type'    => 'text',
+                            'title'   => esc_html__( 'Text 4', 'biolife' ),
+                            'default' => esc_html__( 'No Thank ! I am not interested in this promotion ', 'biolife' ),
+                        ),
+                        array(
+                            'id'      => 'popup_delay',
+                            'type'    => 'spinner',
+                            'title'   => esc_html__( 'Delay', 'biolife' ),
+                            'step'    => 1,
+                            'min'     => 0,
+                            'max'     => 9999,
+                            'unit'    => 'milliseconds',
+                            'default' => 1000,
+                        ),
+                    ),
+                ),
+                array(
+                    'title'  => esc_html__( 'Page Head', 'biolife' ),
+                    'fields' => array(
+                        array(
+                            'id'    => 'head_bg',
+                            'type'  => 'image',
+                            'title' => esc_html__( 'Background', 'biolife' ),
+                            'desc'  => esc_html__( 'for all pages', 'biolife' ),
+                        ),
+                        array(
+                            'id'    => 'head_bg_shop',
+                            'type'  => 'image',
+                            'title' => esc_html__( 'Shop - Background', 'biolife' ),
+                            'desc'  => esc_html__( 'for WooCommerce pages', 'biolife' ),
+                        ),
+                    ),
+                ),
+                array(
+                    'title'  => esc_html__( '404 Error', 'biolife' ),
+                    'fields' => array(
+                        array(
+                            'id'    => '404_image',
+                            'type'  => 'image',
+                            'title' => esc_html__( '404 Image', 'biolife' ),
+                        ),
+                    ),
+                ),
+                array(
+                    'title'  => esc_html__( 'ACE Settings', 'biolife' ),
+                    'fields' => array(
+                        array(
+                            'id'       => 'ace_style',
+                            'type'     => 'code_editor',
+                            'settings' => array(
+                                'theme' => 'dracula',
+                                'mode'  => 'css',
+                            ),
+                            'title'    => esc_html__( 'Editor Style', 'biolife' ),
+                        ),
+                        array(
+                            'id'       => 'ace_script',
+                            'type'     => 'code_editor',
+                            'settings' => array(
+                                'theme' => 'dracula',
+                                'mode'  => 'javascript',
+                            ),
+                            'title'    => esc_html__( 'Editor Javascript', 'biolife' ),
+                        ),
+                    ),
+                ),
+                array(
+                    'title'  => esc_html__( 'Twitter API', 'biolife' ),
+                    'fields' => array(
+                        array(
+                            'id'    => 'twitter_key',
+                            'type'  => 'text',
+                            'title' => esc_html__( 'Twitter Key', 'biolife' ),
+                        ),
+                        array(
+                            'id'    => 'twitter_secret',
+                            'type'  => 'text',
+                            'title' => esc_html__( 'Twitter Secret', 'biolife' ),
+                        ),
+                        array(
+                            'id'    => 'twitter_token',
+                            'type'  => 'text',
+                            'title' => esc_html__( 'Twitter Token', 'biolife' ),
+                        ),
+                        array(
+                            'id'    => 'twitter_token_secret',
+                            'type'  => 'text',
+                            'title' => esc_html__( 'Twitter Token Secret', 'biolife' ),
+                        ),
+                        array(
+                            'type'    => 'content',
+                            'content' => 'Get key: <a href="https://developer.twitter.com/en/apps" target="_blank">https://developer.twitter.com/en/apps</a>',
+                        ),
+                    ),
+                ),
+            ),
+        );
+        $options['header_main']  = array(
+            'name'     => 'header_main',
+            'icon'     => 'fa fa-folder-open-o',
+            'title'    => esc_html__( 'Header', 'biolife' ),
+            'sections' => array(
+                array(
+                    'title'  => esc_html__( 'Header Main', 'biolife' ),
+                    'fields' => array(
+                        array(
+                            'id'      => 'sticky_menu',
+                            'type'    => 'button_set',
+                            'title'   => esc_html__( 'Header Sticky', 'biolife' ),
+                            'options' => array(
+                                'none'     => esc_html__( 'None', 'biolife' ),
+                                'template' => esc_html__( 'Template', 'biolife' ),
+                                'jquery'   => esc_html__( 'jQuery', 'biolife' ),
+                            ),
+                            'default' => 'jquery',
+                        ),
+                        array(
+                            'id'         => 'header_template',
+                            'type'       => 'select_preview',
+                            'title'      => esc_html__( 'Header Layout', 'biolife' ),
+                            'options'    => biolife_file_options( '/templates/header/', 'header' ),
+                            'default'    => 'style-01',
+                            'attributes' => array(
+                                'data-depend-id' => 'header_template',
+                            ),
+                        ),
+                        array(
+                            'id'          => 'header_banner',
+                            'type'        => 'select',
+                            'options'     => 'page',
+                            'chosen'      => true,
+                            'ajax'        => true,
+                            'placeholder' => esc_html__( 'None', 'biolife' ),
+                            'title'       => esc_html__( 'Header Banner', 'biolife' ),
+                            'desc'        => esc_html__( 'Get banner on header from page builder', 'biolife' ),
+                        ),
+                        array(
+                            'id'         => 'header_background',
+                            'type'       => 'image',
+                            'title'      => esc_html__( 'Header Background', 'biolife' ),
+                            'dependency' => array( 'header_template', 'any', 'style-07,style-13' ),
+                        ),
+                        array(
+                            'id'          => 'header_submenu',
+                            'type'        => 'select',
+                            'title'       => esc_html__( 'Header Submenu', 'biolife' ),
+                            'options'     => 'menus',
+                            'chosen'      => true,
+                            'ajax'        => true,
+                            'query_args'  => array(
+                                'data-slug' => true,
+                            ),
+                            'placeholder' => esc_html__( 'None', 'biolife' ),
+                        ),
+                        array(
+                            'id'          => 'header_submenu_2',
+                            'type'        => 'select',
+                            'title'       => esc_html__( 'Header Submenu 2', 'biolife' ),
+                            'options'     => 'menus',
+                            'chosen'      => true,
+                            'ajax'        => true,
+                            'query_args'  => array(
+                                'data-slug' => true,
+                            ),
+                            'placeholder' => esc_html__( 'None', 'biolife' ),
+                        ),
+                        array(
+                            'id'          => 'header_submenu_3',
+                            'type'        => 'select',
+                            'title'       => esc_html__( 'Header Submenu 3', 'biolife' ),
+                            'options'     => 'menus',
+                            'chosen'      => true,
+                            'ajax'        => true,
+                            'query_args'  => array(
+                                'data-slug' => true,
+                            ),
+                            'placeholder' => esc_html__( 'None', 'biolife' ),
+                            'dependency'  => array( 'header_template', 'any', 'style-10' ),
+                        ),
+                        array(
+                            'id'      => 'social_menu',
+                            'type'    => 'switcher',
+                            'title'   => esc_html__( 'Header Social', 'biolife' ),
+                            'default' => 1,
+                        ),
+                        array(
+                            'id'         => 'header_message',
+                            'type'       => 'text',
+                            'title'      => esc_html__( 'Header Message', 'biolife' ),
+                            'dependency' => array( 'header_template', 'any', 'style-12,style-18,style-19,style-99' ),
+                        ),
+                        array(
+                            'id'              => 'header_info',
+                            'type'            => 'group',
+                            'max'             => 2,
+                            'title'           => esc_html__( 'Header Info', 'biolife' ),
+                            'button_title'    => esc_html__( 'Add item', 'biolife' ),
+                            'accordion_title' => esc_html__( 'Add New item', 'biolife' ),
+                            'fields'          => array(
+                                array(
+                                    'id'    => 'info_title',
+                                    'type'  => 'text',
+                                    'title' => esc_html__( 'Title', 'biolife' ),
+                                ),
+                                array(
+                                    'id'    => 'info_subtitle',
+                                    'type'  => 'text',
+                                    'title' => esc_html__( 'Subtitle', 'biolife' ),
+                                ),
+                                array(
+                                    'id'    => 'info_link',
+                                    'type'  => 'text',
+                                    'title' => esc_html__( 'Link', 'biolife' ),
+                                ),
+                                array(
+                                    'id'    => 'info_icon',
+                                    'type'  => 'icon',
+                                    'title' => esc_html__( 'Icon', 'biolife' ),
+                                ),
+                            ),
+                            'dependency'      => array( 'header_template', 'any', 'style-02,style-07,style-11,style-17,style-20' ),
+                        ),
+                    ),
+                ),
+                array(
+                    'title'  => esc_html__( 'Vertical Menu', 'biolife' ),
+                    'fields' => array(
+                        array(
+                            'id'       => 'vertical_always_open',
+                            'type'     => 'select',
+                            'options'  => 'page',
+                            'multiple' => true,
+                            'chosen'   => true,
+                            'ajax'     => true,
+                            'title'    => esc_html__( 'Vertical Menu Always Open', 'biolife' ),
+                        ),
+                        array(
+                            'type'       => 'notice',
+                            'style'      => 'warning',
+                            'content'    => esc_html__( 'Style header do not support vertical menu.', 'biolife' ),
+                            'dependency' => array( 'header_template', 'not-any', $vertical_menu, true ),
+                        ),
+                        array(
+                            'id'          => 'vertical_menu',
+                            'type'        => 'select',
+                            'title'       => esc_html__( 'Vertical Menu', 'biolife' ),
+                            'options'     => 'menus',
+                            'chosen'      => true,
+                            'ajax'        => true,
+                            'query_args'  => array(
+                                'data-slug'      => true,
+                                'posts_per_page' => -1,
+                            ),
+                            'placeholder' => esc_html__( 'None', 'biolife' ),
+                            'dependency'  => array( 'header_template', 'any', $vertical_menu, true ),
+                        ),
+                        array(
+                            'id'         => 'vertical_title',
+                            'type'       => 'text',
+                            'title'      => esc_html__( 'Vertical Title', 'biolife' ),
+                            'default'    => esc_html__( 'All Departments', 'biolife' ),
+                            'dependency' => array( 'header_template', 'any', $vertical_menu, true ),
+                        ),
+                        array(
+                            'id'         => 'vertical_items',
+                            'type'       => 'number',
+                            'unit'       => 'items',
+                            'default'    => 11,
+                            'title'      => esc_html__( 'Vertical Items', 'biolife' ),
+                            'dependency' => array( 'header_template', 'any', $vertical_menu, true ),
+                        ),
+                        array(
+                            'title'      => esc_html__( 'Vertical Button Show More', 'biolife' ),
+                            'id'         => 'vertical_show_more',
+                            'type'       => 'text',
+                            'default'    => esc_html__( 'Show More', 'biolife' ),
+                            'dependency' => array( 'header_template', 'any', $vertical_menu, true ),
+                        ),
+                        array(
+                            'title'      => esc_html__( 'Vertical Button Show Less', 'biolife' ),
+                            'id'         => 'vertical_show_less',
+                            'type'       => 'text',
+                            'default'    => esc_html__( 'Show Less', 'biolife' ),
+                            'dependency' => array( 'header_template', 'any', $vertical_menu, true ),
+                        ),
+                    ),
+                ),
+            ),
+        );
+        $options['footer_main']  = array(
+            'name'   => 'footer_main',
+            'icon'   => 'fa fa-folder-open-o',
+            'title'  => esc_html__( 'Footer', 'biolife' ),
+            'fields' => array(
+                array(
+                    'id'      => 'footer_template',
+                    'type'    => 'select_preview',
+                    'default' => 'footer-01',
+                    'title'   => esc_html__( 'Footer Layout', 'biolife' ),
+                    'options' => biolife_footer_preview(),
+                ),
+            ),
+        );
+        $options['mobile_main']  = array(
+            'name'     => 'mobile_main',
+            'icon'     => 'fa fa-wordpress',
+            'title'    => esc_html__( 'Mobile', 'biolife' ),
+            'sections' => array(
+                array(
+                    'title'  => esc_html__( 'Mobile Layout', 'biolife' ),
+                    'fields' => array(
+                        array(
+                            'id'      => 'mobile_enable',
+                            'type'    => 'switcher',
+                            'title'   => esc_html__( 'Mobile version', 'biolife' ),
+                            'default' => 1,
+                        ),
+                        array(
+                            'id'    => 'logo_mobile',
+                            'type'  => 'image',
+                            'title' => esc_html__( 'Logo Mobile', 'biolife' ),
+                            'desc'  => esc_html__( 'Setting Logo For Site', 'biolife' ),
+                        ),
+                        array(
+                            'id'      => 'mobile_layout',
+                            'type'    => 'image_select',
+                            'default' => 'style-01',
+                            'title'   => esc_html__( 'Mobile Layout', 'biolife' ),
+                            'options' => array(
+                                'style-01' => get_theme_file_uri( 'templates/mobile/mobile-style-01.png' ),
+                                'style-02' => get_theme_file_uri( 'templates/mobile/mobile-style-02.png' ),
+                                'style-03' => get_theme_file_uri( 'templates/mobile/mobile-style-03.png' ),
+                            ),
+                        ),
+                        array(
+                            'id'      => 'mobile_banner',
+                            'type'    => 'switcher',
+                            'title'   => esc_html__( 'Mobile Top Banner', 'biolife' ),
+                            'default' => 1,
+                        ),
+                        array(
+                            'id'      => 'background_mobile',
+                            'type'    => 'background',
+                            'title'   => esc_html__( 'Background Mobile', 'biolife' ),
+                            'desc'    => esc_html__( 'Setting Background For Mobile Menu', 'biolife' ),
+                            'default' => array(
+                                'background-position'   => 'center center',
+                                'background-repeat'     => 'no-repeat',
+                                'background-attachment' => 'scroll',
+                                'background-size'       => 'cover',
+                            ),
+                            'output'  => '.ovic-menu-clone-wrap .head-menu-mobile'
+                        ),
+                    )
+                ),
+                array(
+                    'title'  => esc_html__( 'Mobile Content', 'biolife' ),
+                    'fields' => array(
+                        array(
+                            'id'          => 'mobile_menu_top',
+                            'type'        => 'select',
+                            'title'       => esc_html__( 'Mobile Menu Top', 'biolife' ),
+                            'options'     => 'menus',
+                            'chosen'      => true,
+                            'ajax'        => true,
+                            'query_args'  => array(
+                                'data-slug' => true,
+                            ),
+                            'placeholder' => esc_html__( 'None', 'biolife' ),
+                        ),
+                        array(
+                            'id'          => 'mobile_menu_bottom',
+                            'type'        => 'select',
+                            'title'       => esc_html__( 'Mobile Menu Bottom', 'biolife' ),
+                            'options'     => 'menus',
+                            'chosen'      => true,
+                            'ajax'        => true,
+                            'query_args'  => array(
+                                'data-slug' => true,
+                            ),
+                            'placeholder' => esc_html__( 'None', 'biolife' ),
+                        ),
+                        array(
+                            'id'      => 'mobile_footer',
+                            'type'    => 'select_preview',
+                            'default' => 'inherit',
+                            'title'   => esc_html__( 'Footer Mobile', 'biolife' ),
+                            'options' => biolife_footer_preview( true ),
+                        ),
+                    )
+                ),
+            )
+        );
+        $options['posts_main']   = array(
+            'name'     => 'posts_main',
+            'icon'     => 'fa fa-rss',
+            'title'    => esc_html__( 'Posts Settings', 'biolife' ),
+            'sections' => array(
+                array(
+                    'title'  => esc_html__( 'Blog Page', 'biolife' ),
+                    'fields' => array(
+                        array(
+                            'id'      => 'blog_page_title',
+                            'type'    => 'switcher',
+                            'title'   => esc_html__( 'Page Title', 'biolife' ),
+                            'default' => 1,
+                        ),
+                        array(
+                            'id'      => 'blog_list_style',
+                            'type'    => 'select',
+                            'title'   => esc_html__( 'Blog Layout', 'biolife' ),
+                            'options' => array(
+                                'standard' => esc_html__( 'Standard', 'biolife' ),
+                                'grid'     => esc_html__( 'Grid', 'biolife' ),
+                                'list'     => esc_html__( 'List', 'biolife' ),
+                            ),
+                            'default' => 'standard',
+                        ),
+                        array(
+                            'id'      => 'sidebar_blog_layout',
+                            'type'    => 'image_select',
+                            'title'   => esc_html__( 'Sidebar Blog Layout', 'biolife' ),
+                            'desc'    => esc_html__( 'Select sidebar position on Blog.', 'biolife' ),
+                            'options' => array(
+                                'left'  => get_theme_file_uri( 'assets/images/left-sidebar.png' ),
+                                'right' => get_theme_file_uri( 'assets/images/right-sidebar.png' ),
+                                'full'  => get_theme_file_uri( 'assets/images/no-sidebar.png' ),
+                            ),
+                            'default' => 'left',
+                        ),
+                        array(
+                            'id'         => 'blog_used_sidebar',
+                            'type'       => 'select',
+                            'default'    => 'widget-area',
+                            'title'      => esc_html__( 'Blog Sidebar', 'biolife' ),
+                            'options'    => 'sidebars',
+                            'dependency' => array( 'sidebar_blog_layout', '!=', 'full' ),
+                        ),
+                        array(
+                            'id'      => 'blog_pagination',
+                            'type'    => 'button_set',
+                            'title'   => esc_html__( 'Blog Pagination', 'biolife' ),
+                            'options' => array(
+                                'pagination' => esc_html__( 'Pagination', 'biolife' ),
+                                'load_more'  => esc_html__( 'Load More', 'biolife' ),
+                                'infinite'   => esc_html__( 'Infinite Scrolling', 'biolife' ),
+                            ),
+                            'default' => 'pagination',
+                            'desc'    => esc_html__( 'Select style pagination on blog page.', 'biolife' ),
+                        ),
+                    ),
+                ),
+                array(
+                    'title'  => esc_html__( 'Post Single', 'biolife' ),
+                    'fields' => array(
+                        array(
+                            'id'      => 'single_layout',
+                            'type'    => 'select',
+                            'default' => 'standard',
+                            'title'   => esc_html__( 'Single Post Layout', 'biolife' ),
+                            'options' => array(
+                                'standard' => esc_html__( 'Standard', 'biolife' ),
+                            ),
+                        ),
+                        array(
+                            'id'         => 'head_height_post',
+                            'type'       => 'spinner',
+                            'title'      => esc_html__( 'Thumb Height', 'biolife' ),
+                            'min'        => 200,
+                            'max'        => 1000,
+                            'step'       => 1,
+                            'unit'       => 'px',
+                            'dependency' => array( 'single_layout', '==', 'modern' ),
+                        ),
+                        array(
+                            'id'      => 'sidebar_single_layout',
+                            'type'    => 'image_select',
+                            'title'   => esc_html__( ' Sidebar Single Post Layout', 'biolife' ),
+                            'desc'    => esc_html__( 'Select sidebar position on Blog.', 'biolife' ),
+                            'options' => array(
+                                'left'  => get_theme_file_uri( 'assets/images/left-sidebar.png' ),
+                                'right' => get_theme_file_uri( 'assets/images/right-sidebar.png' ),
+                                'full'  => get_theme_file_uri( 'assets/images/no-sidebar.png' ),
+                            ),
+                            'default' => 'left',
+                        ),
+                        array(
+                            'id'         => 'single_used_sidebar',
+                            'type'       => 'select',
+                            'default'    => 'widget-area',
+                            'title'      => esc_html__( 'Blog Single Sidebar', 'biolife' ),
+                            'options'    => 'sidebars',
+                            'dependency' => array( 'sidebar_single_layout', '!=', 'full' ),
+                        ),
+                        array(
+                            'id'    => 'enable_share_post',
+                            'type'  => 'switcher',
+                            'title' => esc_html__( 'Enable Share', 'biolife' ),
+                        ),
+                        array(
+                            'id'    => 'enable_pagination_post',
+                            'type'  => 'switcher',
+                            'title' => esc_html__( 'Enable Prev/Next Post', 'biolife' ),
+                        ),
+                        array(
+                            'id'    => 'enable_author_info',
+                            'type'  => 'switcher',
+                            'title' => esc_html__( 'Enable Author Info', 'biolife' ),
+                        ),
+                    ),
+                ),
+            ),
+        );
+        if ( class_exists( 'WooCommerce' ) ) {
+            $options['woocommerce_mains'] = array(
+                'name'     => 'woocommerce_mains',
+                'icon'     => 'fa fa-shopping-bag',
+                'title'    => esc_html__( 'WooCommerce', 'biolife' ),
+                'sections' => array(
+                    array(
+                        'title'  => esc_html__( 'Shop Page', 'biolife' ),
+                        'fields' => array(
+                            array(
+                                'id'      => 'shop_page_title',
+                                'type'    => 'switcher',
+                                'title'   => esc_html__( 'Page Title', 'biolife' ),
+                                'default' => 1,
+                            ),
+                            array(
+                                'id'          => 'shop_builder_top',
+                                'type'        => 'select',
+                                'options'     => 'page',
+                                'query_args'  => array(
+                                    'posts_per_page' => -1,
+                                ),
+                                'chosen'      => true,
+                                'ajax'        => true,
+                                'placeholder' => esc_html__( 'Select Page', 'biolife' ),
+                                'title'       => esc_html__( 'Shop Builder Top', 'biolife' ),
+                                'desc'        => esc_html__( 'Get shop banner from page builder.', 'biolife' ),
+                            ),
+                            array(
+                                'id'      => 'shop_builder_position',
+                                'type'    => 'select',
+                                'title'   => esc_html__( 'Shop Builder Position', 'biolife' ),
+                                'options' => array(
+                                    'outside' => esc_html__( 'Outside', 'biolife' ),
+                                    'inside'  => esc_html__( 'Inside', 'biolife' ),
+                                ),
+                                'default' => 'inside',
+                            ),
+                            array(
+                                'id'          => 'shop_builder_bot',
+                                'type'        => 'select',
+                                'options'     => 'page',
+                                'query_args'  => array(
+                                    'posts_per_page' => -1,
+                                ),
+                                'chosen'      => true,
+                                'ajax'        => true,
+                                'placeholder' => esc_html__( 'Select Page', 'biolife' ),
+                                'title'       => esc_html__( 'Shop Builder Bottom', 'biolife' ),
+                                'desc'        => esc_html__( 'Get shop banner from page builder.', 'biolife' ),
+                            ),
+                            array(
+                                'id'      => 'shop_page_layout',
+                                'type'    => 'image_select',
+                                'default' => 'grid',
+                                'title'   => esc_html__( 'Shop Layout', 'biolife' ),
+                                'desc'    => esc_html__( 'Select layout for shop product, product category archive.',
+                                    'biolife' ),
+                                'options' => array(
+                                    'grid' => get_theme_file_uri( 'assets/images/grid-display.png' ),
+                                    'list' => get_theme_file_uri( 'assets/images/list-display.png' ),
+                                ),
+                            ),
+                            array(
+                                'id'      => 'product_loop_columns',
+                                'type'    => 'spinner',
+                                'title'   => esc_html__( 'Products Columns', 'biolife' ),
+                                'desc'    => esc_html__( 'for Grid', 'biolife' ),
+                                'max'     => 6,
+                                'min'     => 2,
+                                'step'    => 1,
+                                'unit'    => 'columns',
+                                'default' => 4,
+                            ),
+                            array(
+                                'id'      => 'product_per_page',
+                                'type'    => 'spinner',
+                                'default' => '10',
+                                'unit'    => 'items',
+                                'title'   => esc_html__( 'Products Per Page', 'biolife' ),
+                            ),
+                            array(
+                                'id'      => 'product_newness',
+                                'default' => 100,
+                                'type'    => 'spinner',
+                                'unit'    => 'days',
+                                'title'   => esc_html__( 'Products Newness', 'biolife' ),
+                            ),
+                            array(
+                                'id'      => 'product_hover',
+                                'type'    => 'button_set',
+                                'title'   => esc_html__( 'Product Image Hover', 'biolife' ),
+                                'options' => array(
+                                    ''       => esc_html__( 'None', 'biolife' ),
+                                    'zoom'   => esc_html__( 'Zoom Image', 'biolife' ),
+                                    'change' => esc_html__( 'Change Image', 'biolife' ),
+                                    'slide'  => esc_html__( 'Slide Image', 'biolife' ),
+                                ),
+                                'default' => '',
+                            ),
+                            array(
+                                'id'      => 'woocommerce_pagination',
+                                'type'    => 'button_set',
+                                'title'   => esc_html__( 'Shop Pagination', 'biolife' ),
+                                'options' => array(
+                                    'pagination' => esc_html__( 'Pagination', 'biolife' ),
+                                    'load_more'  => esc_html__( 'Load More', 'biolife' ),
+                                    'infinite'   => esc_html__( 'Infinite Scrolling', 'biolife' ),
+                                ),
+                                'default' => 'pagination',
+                                'desc'    => esc_html__( 'Select style pagination on shop page.', 'biolife' ),
+                            ),
+                        ),
+                    ),
+                    array(
+                        'title'  => esc_html__( 'Shop Page Sidebar', 'biolife' ),
+                        'fields' => array(
+                            array(
+                                'id'      => 'sidebar_shop_layout',
+                                'type'    => 'image_select',
+                                'title'   => esc_html__( 'Shop Page Sidebar Layout', 'biolife' ),
+                                'desc'    => esc_html__( 'Select sidebar position on Shop Page.', 'biolife' ),
+                                'options' => array(
+                                    'left'  => get_theme_file_uri( 'assets/images/left-sidebar.png' ),
+                                    'right' => get_theme_file_uri( 'assets/images/right-sidebar.png' ),
+                                    'full'  => get_theme_file_uri( 'assets/images/no-sidebar.png' ),
+                                ),
+                                'default' => 'left',
+                            ),
+                            array(
+                                'id'         => 'shop_used_sidebar',
+                                'type'       => 'select',
+                                'default'    => 'shop-widget-area',
+                                'title'      => esc_html__( 'Sidebar Used For Shop', 'biolife' ),
+                                'options'    => 'sidebars',
+                                'dependency' => array( 'sidebar_shop_layout', '!=', 'full' ),
+                            ),
+                            array(
+                                'id'         => 'shop_vendor_used_sidebar',
+                                'type'       => 'select',
+                                'default'    => 'shop-widget-area',
+                                'title'      => esc_html__( 'Sidebar Used For Vendor', 'biolife' ),
+                                'options'    => 'sidebars',
+                                'dependency' => array( 'sidebar_shop_layout', '!=', 'full' ),
+                            ),
+                            array(
+                                'id'      => 'shop_sidebar_width',
+                                'type'    => 'slider',
+                                'title'   => esc_html__( 'Sidebar Width', 'biolife' ),
+                                'desc'    => esc_html__( 'Default is General / Sidebar settings', 'biolife' ),
+                                'min'     => 200,
+                                'max'     => 500,
+                                'step'    => 1,
+                                'unit'    => esc_html__( 'px', 'biolife' ),
+                                'default' => 270,
+                            ),
+                            array(
+                                'id'      => 'shop_sidebar_space',
+                                'type'    => 'spinner',
+                                'title'   => esc_html__( 'Sidebar Space', 'biolife' ),
+                                'desc'    => esc_html__( 'Default is General / Sidebar settings', 'biolife' ),
+                                'min'     => 0,
+                                'max'     => 200,
+                                'step'    => 1,
+                                'unit'    => 'px',
+                                'default' => 30,
+                            ),
+                            array(
+                                'id'      => 'shop_sidebar_width_tablet',
+                                'type'    => 'slider',
+                                'title'   => esc_html__( 'Sidebar Width Tablet', 'biolife' ),
+                                'desc'    => esc_html__( 'resolution < 1200px', 'biolife' ),
+                                'min'     => 200,
+                                'max'     => 500,
+                                'step'    => 1,
+                                'unit'    => esc_html__( 'px', 'biolife' ),
+                                'default' => 270,
+                            ),
+                            array(
+                                'id'      => 'shop_sidebar_space_tablet',
+                                'type'    => 'spinner',
+                                'title'   => esc_html__( 'Sidebar Space Tablet', 'biolife' ),
+                                'desc'    => esc_html__( 'resolution < 1200px', 'biolife' ),
+                                'min'     => 0,
+                                'max'     => 200,
+                                'step'    => 1,
+                                'unit'    => 'px',
+                                'default' => 30,
+                            ),
+                        ),
+                    ),
+                    array(
+                        'title'  => esc_html__( 'Shop Page Items', 'biolife' ),
+                        'fields' => array(
+                            array(
+                                'id'      => 'shop_product_style',
+                                'type'    => 'select_preview',
+                                'default' => 'style-01',
+                                'title'   => esc_html__( 'Grid Items Style', 'biolife' ),
+                                'options' => biolife_product_options( 'Theme Option' ),
+                            ),
+                            array(
+                                'id'    => 'disable_labels',
+                                'type'  => 'switcher',
+                                'title' => esc_html__( 'Disable Labels', 'biolife' ),
+                            ),
+                            array(
+                                'id'    => 'disable_rating',
+                                'type'  => 'switcher',
+                                'title' => esc_html__( 'Disable Rating', 'biolife' ),
+                            ),
+                            array(
+                                'id'    => 'short_text',
+                                'type'  => 'switcher',
+                                'title' => esc_html__( 'Short Title', 'biolife' ),
+                            ),
+                            array(
+                                'id'    => 'enable_short_title',
+                                'type'  => 'switcher',
+                                'title' => esc_html__( 'Short Title on Mobile ( < 768px )', 'biolife' ),
+                            ),
+                        ),
+                    ),
+                    array(
+                        'title'  => esc_html__( 'Product Single', 'biolife' ),
+                        'fields' => array(
+                            array(
+                                'id'      => 'single_product_thumbnail',
+                                'type'    => 'select',
+                                'title'   => esc_html__( 'Product Thumbnails', 'biolife' ),
+                                'options' => array(
+                                    'standard' => esc_html__( 'Standard', 'biolife' ),
+                                    'vertical' => esc_html__( 'Vertical', 'biolife' ),
+                                    'grid'     => esc_html__( 'Grid Gallery', 'biolife' ),
+                                    'slide'    => esc_html__( 'Slide Gallery', 'biolife' ),
+                                    'sticky'   => esc_html__( 'Sticky Summary', 'biolife' ),
+                                ),
+                                'default' => 'standard',
+                            ),
+                            array(
+                                'id'    => 'product_payment_logo',
+                                'type'  => 'image',
+                                'title' => esc_html__( 'Payment logos', 'biolife' ),
+                            ),
+                            array(
+                                'id'    => 'enable_countdown_product',
+                                'type'  => 'switcher',
+                                'title' => esc_html__( 'Enable Countdown', 'biolife' ),
+                            ),
+                            array(
+                                'id'    => 'enable_share_product',
+                                'type'  => 'switcher',
+                                'title' => esc_html__( 'Enable Share', 'biolife' ),
+                            ),
+                            array(
+                                'id'    => 'disable_zoom',
+                                'type'  => 'switcher',
+                                'title' => esc_html__( 'Disable Zoom Gallery', 'biolife' ),
+                            ),
+                            array(
+                                'id'    => 'disable_lightbox',
+                                'type'  => 'switcher',
+                                'title' => esc_html__( 'Disable Lightbox Gallery', 'biolife' ),
+                            ),
+                            array(
+                                'id'    => 'product_views',
+                                'type'  => 'switcher',
+                                'title' => esc_html__( 'Product Views', 'biolife' ),
+                            ),
+                            array(
+                                'id'           => 'delivery_info',
+                                'type'         => 'group',
+                                'title'        => esc_html__( 'Delivery Information', 'biolife' ),
+                                'button_title' => esc_html__( 'Add New', 'biolife' ),
+                                'fields'       => array(
+                                    array(
+                                        'id'    => 'text',
+                                        'type'  => 'textarea',
+                                        'title' => esc_html__( 'Text', 'biolife' ),
+                                    ),
+                                    array(
+                                        'id'    => 'icon',
+                                        'type'  => 'icon',
+                                        'title' => esc_html__( 'Icon', 'biolife' ),
+                                    ),
+                                ),
+                            ),
+                            array(
+                                'id'      => 'single_product_tabs',
+                                'type'    => 'select',
+                                'title'   => esc_html__( 'Product Tabs', 'biolife' ),
+                                'options' => array(
+                                    ''         => esc_html__( 'Default', 'biolife' ),
+                                    'show-all' => esc_html__( 'Show All', 'biolife' ),
+                                ),
+                                'default' => '',
+                            ),
+                        ),
+                    ),
+                    array(
+                        'title'  => esc_html__( 'Related Products', 'biolife' ),
+                        'fields' => array(
+                            array(
+                                'id'      => 'woo_related_enable',
+                                'type'    => 'button_set',
+                                'default' => 'enable',
+                                'options' => array(
+                                    'enable'  => esc_html__( 'Enable', 'biolife' ),
+                                    'disable' => esc_html__( 'Disable', 'biolife' ),
+                                ),
+                                'title'   => esc_html__( 'Enable Related Products', 'biolife' ),
+                            ),
+                            array(
+                                'id'         => 'woo_related_icon',
+                                'type'       => 'icon',
+                                'title'      => esc_html__( 'Related products title icon', 'biolife' ),
+                                'dependency' => array( 'woo_related_enable', '==', 'enable' ),
+                            ),
+                            array(
+                                'id'         => 'woo_related_title',
+                                'type'       => 'text',
+                                'title'      => esc_html__( 'Related products title', 'biolife' ),
+                                'dependency' => array( 'woo_related_enable', '==', 'enable' ),
+                                'default'    => esc_html__( 'Related Products', 'biolife' ),
+                            ),
+                            array(
+                                'id'         => 'woo_related_subtitle',
+                                'type'       => 'text',
+                                'title'      => esc_html__( 'Related products subtitle', 'biolife' ),
+                                'dependency' => array( 'woo_related_enable', '==', 'enable' ),
+                            ),
+                            array(
+                                'id'         => 'woo_related_style',
+                                'type'       => 'select_preview',
+                                'default'    => 'style-01',
+                                'title'      => esc_html__( 'Product Related Layout', 'biolife' ),
+                                'options'    => biolife_product_options( 'Theme Option' ),
+                                'dependency' => array( 'woo_related_enable', '==', 'enable' ),
+                            ),
+                            array(
+                                'id'         => 'woo_related_perpage',
+                                'type'       => 'spinner',
+                                'title'      => esc_html__( 'Related products Items', 'biolife' ),
+                                'desc'       => esc_html__( 'Number Related products to show', 'biolife' ),
+                                'dependency' => array( 'woo_related_enable', '==', 'enable' ),
+                                'default'    => 6,
+                                'unit'       => 'item(s)',
+                            ),
+                            array(
+                                'id'      => 'woo_related_desktop',
+                                'title'   => esc_html__( 'items on Desktop', 'biolife' ),
+                                'desc'    => esc_html__( '1500px <= resolution', 'biolife' ),
+                                'type'    => 'slider',
+                                'default' => 5,
+                                'min'     => 1,
+                                'max'     => 6,
+                                'unit'    => 'item(s)',
+                            ),
+                            array(
+                                'id'      => 'woo_related_laptop',
+                                'title'   => esc_html__( 'items on Laptop', 'biolife' ),
+                                'desc'    => esc_html__( '1200px <= resolution < 1500px', 'biolife' ),
+                                'type'    => 'slider',
+                                'default' => 5,
+                                'min'     => 1,
+                                'max'     => 6,
+                                'unit'    => 'item(s)',
+                            ),
+                            array(
+                                'id'      => 'woo_related_ipad',
+                                'title'   => esc_html__( 'items on Ipad', 'biolife' ),
+                                'desc'    => esc_html__( '992px <= resolution < 1200px', 'biolife' ),
+                                'type'    => 'slider',
+                                'default' => 4,
+                                'min'     => 1,
+                                'max'     => 6,
+                                'unit'    => 'item(s)',
+                            ),
+                            array(
+                                'id'      => 'woo_related_landscape',
+                                'title'   => esc_html__( 'items on Landscape Tablet', 'biolife' ),
+                                'desc'    => esc_html__( '768px <= resolution < 992px', 'biolife' ),
+                                'type'    => 'slider',
+                                'default' => 3,
+                                'min'     => 1,
+                                'max'     => 6,
+                                'unit'    => 'item(s)',
+                            ),
+                            array(
+                                'id'      => 'woo_related_portrait',
+                                'title'   => esc_html__( 'items on Portrait Tablet', 'biolife' ),
+                                'desc'    => esc_html__( '480px <= resolution < 768px', 'biolife' ),
+                                'type'    => 'slider',
+                                'default' => 3,
+                                'min'     => 1,
+                                'max'     => 6,
+                                'unit'    => 'item(s)',
+                            ),
+                            array(
+                                'id'      => 'woo_related_mobile',
+                                'title'   => esc_html__( 'items on Mobile', 'biolife' ),
+                                'desc'    => esc_html__( 'resolution < 480px', 'biolife' ),
+                                'type'    => 'slider',
+                                'default' => 2,
+                                'min'     => 1,
+                                'max'     => 6,
+                                'unit'    => 'item(s)',
+                            ),
+                        ),
+                    ),
+                    array(
+                        'title'  => esc_html__( 'Upsell Products', 'biolife' ),
+                        'fields' => array(
+                            array(
+                                'id'      => 'woo_upsell_enable',
+                                'type'    => 'button_set',
+                                'default' => 'enable',
+                                'options' => array(
+                                    'enable'  => esc_html__( 'Enable', 'biolife' ),
+                                    'disable' => esc_html__( 'Disable', 'biolife' ),
+                                ),
+                                'title'   => esc_html__( 'Enable Upsell Products', 'biolife' ),
+                            ),
+                            array(
+                                'id'         => 'woo_upsell_icon',
+                                'type'       => 'icon',
+                                'title'      => esc_html__( 'Upsell products title icon', 'biolife' ),
+                                'dependency' => array( 'woo_upsell_enable', '==', 'enable' ),
+                            ),
+                            array(
+                                'id'         => 'woo_upsell_title',
+                                'type'       => 'text',
+                                'title'      => esc_html__( 'Upsell products title', 'biolife' ),
+                                'dependency' => array( 'woo_upsell_enable', '==', 'enable' ),
+                                'default'    => esc_html__( 'Upsell Products', 'biolife' ),
+                            ),
+                            array(
+                                'id'         => 'woo_upsell_subtitle',
+                                'type'       => 'text',
+                                'title'      => esc_html__( 'Upsell products subtitle', 'biolife' ),
+                                'dependency' => array( 'woo_upsell_enable', '==', 'enable' ),
+                            ),
+                            array(
+                                'id'         => 'woo_upsell_style',
+                                'type'       => 'select_preview',
+                                'default'    => 'style-01',
+                                'title'      => esc_html__( 'Product Upsell Layout', 'biolife' ),
+                                'options'    => biolife_product_options( 'Theme Option' ),
+                                'dependency' => array( 'woo_upsell_enable', '==', 'enable' ),
+                            ),
+                            array(
+                                'id'      => 'woo_upsell_desktop',
+                                'title'   => esc_html__( 'items on Desktop', 'biolife' ),
+                                'desc'    => esc_html__( '1500px <= resolution', 'biolife' ),
+                                'type'    => 'slider',
+                                'default' => 5,
+                                'min'     => 1,
+                                'max'     => 6,
+                                'unit'    => 'item(s)',
+                            ),
+                            array(
+                                'id'      => 'woo_upsell_laptop',
+                                'title'   => esc_html__( 'items on Laptop', 'biolife' ),
+                                'desc'    => esc_html__( '1200px <= resolution < 1500px', 'biolife' ),
+                                'type'    => 'slider',
+                                'default' => 5,
+                                'min'     => 1,
+                                'max'     => 6,
+                                'unit'    => 'item(s)',
+                            ),
+                            array(
+                                'id'      => 'woo_upsell_ipad',
+                                'title'   => esc_html__( 'items on Ipad', 'biolife' ),
+                                'desc'    => esc_html__( '992px <= resolution < 1200px', 'biolife' ),
+                                'type'    => 'slider',
+                                'default' => 4,
+                                'min'     => 1,
+                                'max'     => 6,
+                                'unit'    => 'item(s)',
+                            ),
+                            array(
+                                'id'      => 'woo_upsell_landscape',
+                                'title'   => esc_html__( 'items on Landscape Tablet', 'biolife' ),
+                                'desc'    => esc_html__( '768px <= resolution < 992px', 'biolife' ),
+                                'type'    => 'slider',
+                                'default' => 3,
+                                'min'     => 1,
+                                'max'     => 6,
+                                'unit'    => 'item(s)',
+                            ),
+                            array(
+                                'id'      => 'woo_upsell_portrait',
+                                'title'   => esc_html__( 'items on Portrait Tablet', 'biolife' ),
+                                'desc'    => esc_html__( '480px <= resolution < 768px', 'biolife' ),
+                                'type'    => 'slider',
+                                'default' => 3,
+                                'min'     => 1,
+                                'max'     => 6,
+                                'unit'    => 'item(s)',
+                            ),
+                            array(
+                                'id'      => 'woo_upsell_mobile',
+                                'title'   => esc_html__( 'items on Mobile', 'biolife' ),
+                                'desc'    => esc_html__( 'resolution < 480px', 'biolife' ),
+                                'type'    => 'slider',
+                                'default' => 2,
+                                'min'     => 1,
+                                'max'     => 6,
+                                'unit'    => 'item(s)',
+                            ),
+                        ),
+                    ),
+                    array(
+                        'title'  => esc_html__( 'Cross Sell Products', 'biolife' ),
+                        'fields' => array(
+                            array(
+                                'id'      => 'woo_crosssell_enable',
+                                'type'    => 'button_set',
+                                'default' => 'enable',
+                                'options' => array(
+                                    'enable'  => esc_html__( 'Enable', 'biolife' ),
+                                    'disable' => esc_html__( 'Disable', 'biolife' ),
+                                ),
+                                'title'   => esc_html__( 'Enable Cross Sell Products', 'biolife' ),
+                            ),
+                            array(
+                                'id'         => 'woo_crosssell_icon',
+                                'type'       => 'icon',
+                                'title'      => esc_html__( 'Cross Sell products title icon', 'biolife' ),
+                                'dependency' => array( 'woo_crosssell_enable', '==', 'enable' ),
+                            ),
+                            array(
+                                'id'         => 'woo_crosssell_title',
+                                'type'       => 'text',
+                                'title'      => esc_html__( 'Cross Sell products title', 'biolife' ),
+                                'dependency' => array( 'woo_crosssell_enable', '==', 'enable' ),
+                                'default'    => esc_html__( 'Cross Sell Products', 'biolife' ),
+                            ),
+                            array(
+                                'id'         => 'woo_crosssell_subtitle',
+                                'type'       => 'text',
+                                'title'      => esc_html__( 'Cross Sell products subtitle', 'biolife' ),
+                                'dependency' => array( 'woo_crosssell_enable', '==', 'enable' ),
+                            ),
+                            array(
+                                'id'         => 'woo_crosssell_style',
+                                'type'       => 'select_preview',
+                                'default'    => 'style-01',
+                                'title'      => esc_html__( 'Product Cross Sell Layout', 'biolife' ),
+                                'options'    => biolife_product_options( 'Theme Option' ),
+                                'dependency' => array( 'woo_crosssell_enable', '==', 'enable' ),
+                            ),
+                            array(
+                                'id'      => 'woo_crosssell_desktop',
+                                'title'   => esc_html__( 'items on Desktop', 'biolife' ),
+                                'desc'    => esc_html__( '1500px <= resolution', 'biolife' ),
+                                'type'    => 'slider',
+                                'default' => 5,
+                                'min'     => 1,
+                                'max'     => 6,
+                                'unit'    => 'item(s)',
+                            ),
+                            array(
+                                'id'      => 'woo_crosssell_laptop',
+                                'title'   => esc_html__( 'items on Laptop', 'biolife' ),
+                                'desc'    => esc_html__( '1200px <= resolution < 1500px', 'biolife' ),
+                                'type'    => 'slider',
+                                'default' => 5,
+                                'min'     => 1,
+                                'max'     => 6,
+                                'unit'    => 'item(s)',
+                            ),
+                            array(
+                                'id'      => 'woo_crosssell_ipad',
+                                'title'   => esc_html__( 'items on Ipad', 'biolife' ),
+                                'desc'    => esc_html__( '992px <= resolution < 1200px', 'biolife' ),
+                                'type'    => 'slider',
+                                'default' => 4,
+                                'min'     => 1,
+                                'max'     => 6,
+                                'unit'    => 'item(s)',
+                            ),
+                            array(
+                                'id'      => 'woo_crosssell_landscape',
+                                'title'   => esc_html__( 'items on Landscape Tablet', 'biolife' ),
+                                'desc'    => esc_html__( '768px <= resolution < 992px', 'biolife' ),
+                                'type'    => 'slider',
+                                'default' => 3,
+                                'min'     => 1,
+                                'max'     => 6,
+                                'unit'    => 'item(s)',
+                            ),
+                            array(
+                                'id'      => 'woo_crosssell_portrait',
+                                'title'   => esc_html__( 'items on Portrait Tablet', 'biolife' ),
+                                'desc'    => esc_html__( '480px <= resolution < 768px', 'biolife' ),
+                                'type'    => 'slider',
+                                'default' => 3,
+                                'min'     => 1,
+                                'max'     => 6,
+                                'unit'    => 'item(s)',
+                            ),
+                            array(
+                                'id'      => 'woo_crosssell_mobile',
+                                'title'   => esc_html__( 'items on Mobile', 'biolife' ),
+                                'desc'    => esc_html__( 'resolution < 480px', 'biolife' ),
+                                'type'    => 'slider',
+                                'default' => 2,
+                                'min'     => 1,
+                                'max'     => 6,
+                                'unit'    => 'item(s)',
+                            ),
+                        ),
+                    ),
+                ),
+            );
+        }
+        $options['social']     = array(
+            'name'   => 'social',
+            'icon'   => 'fa fa-users',
+            'title'  => esc_html__( 'Social', 'biolife' ),
+            'fields' => array(
+                array(
+                    'id'              => 'user_all_social',
+                    'type'            => 'group',
+                    'title'           => esc_html__( 'Social', 'biolife' ),
+                    'button_title'    => esc_html__( 'Add New Social', 'biolife' ),
+                    'accordion_title' => esc_html__( 'Social Settings', 'biolife' ),
+                    'fields'          => array(
+                        array(
+                            'id'      => 'title_social',
+                            'type'    => 'text',
+                            'title'   => esc_html__( 'Title Social', 'biolife' ),
+                            'default' => esc_html__( 'Facebook', 'biolife' ),
+                        ),
+                        array(
+                            'id'      => 'link_social',
+                            'type'    => 'text',
+                            'title'   => esc_html__( 'Link Social', 'biolife' ),
+                            'default' => 'https://facebook.com',
+                        ),
+                        array(
+                            'id'      => 'icon_social',
+                            'type'    => 'icon',
+                            'title'   => esc_html__( 'Icon Social', 'biolife' ),
+                            'default' => 'fa fa-facebook',
+                        ),
+                    ),
+                    'default'         => array(
+                        array(
+                            'title_social' => esc_html__( 'Facebook', 'biolife' ),
+                            'link_social'  => 'https://facebook.com/',
+                            'icon_social'  => 'fa fa-facebook',
+                        ),
+                        array(
+                            'title_social' => esc_html__( 'Twitter', 'biolife' ),
+                            'link_social'  => 'https://twitter.com/',
+                            'icon_social'  => 'fa fa-twitter',
+                        ),
+                        array(
+                            'title_social' => esc_html__( 'Instagram', 'biolife' ),
+                            'link_social'  => 'https://instagram.com/',
+                            'icon_social'  => 'fa fa-instagram',
+                        ),
+                        array(
+                            'title_social' => esc_html__( 'Youtube', 'biolife' ),
+                            'link_social'  => 'https://youtube.com/',
+                            'icon_social'  => 'fa fa-youtube-play',
+                        ),
+                    ),
+                ),
+            ),
+        );
+        $options['typography'] = array(
+            'name'   => 'typography',
+            'icon'   => 'fa fa-font',
+            'title'  => esc_html__( 'Typography', 'biolife' ),
+            'fields' => array(
+                array(
+                    'id'             => 'body_typography',
+                    'type'           => 'typography',
+                    'title'          => esc_html__( 'Typography of Body', 'biolife' ),
+                    'font_family'    => true,
+                    'font_weight'    => true,
+                    'font_style'     => true,
+                    'subset'         => true,
+                    'text_align'     => true,
+                    'text_transform' => true,
+                    'font_size'      => true,
+                    'line_height'    => true,
+                    'letter_spacing' => true,
+                    'extra_styles'   => true,
+                    'color'          => true,
+                    'output'         => 'body',
+                ),
+                array(
+                    'id'             => 'special_typography',
+                    'type'           => 'typography',
+                    'title'          => esc_html__( 'Typography of Special texts', 'biolife' ),
+                    'font_family'    => true,
+                    'font_weight'    => true,
+                    'font_style'     => true,
+                    'subset'         => false,
+                    'text_align'     => false,
+                    'text_transform' => false,
+                    'font_size'      => false,
+                    'line_height'    => false,
+                    'letter_spacing' => false,
+                    'extra_styles'   => true,
+                    'color'          => false,
+                    'output'         => '.main-special-font',
+                ),
+            ),
+        );
+        $options['backup']     = array(
+            'name'   => 'backup',
+            'icon'   => 'fa fa-bold',
+            'title'  => esc_html__( 'Backup / Reset', 'biolife' ),
+            'fields' => array(
+                array(
+                    'id'    => 'reset',
+                    'type'  => 'backup',
+                    'title' => esc_html__( 'Reset', 'biolife' ),
+                ),
+                array(
+                    'id'      => 'delete_transients',
+                    'type'    => 'content',
+                    'content' => '<a href="#" data-text-done="' . esc_attr__( '%n transient database entries have been deleted.', 'biolife' ) . '" class="button button-primary delete-transients"/>' . esc_html__( 'Delete Transients', 'biolife' ) . '</a><span class="spinner" style="float:none;"></span>',
+                    'title'   => esc_html__( 'Delete Transients', 'biolife' ),
+                    'desc'    => esc_html__( 'All transient related database entries will be deleted.', 'biolife' ),
+                    'after'   => ' <p class="ovic-text-success"></p>',
+                ),
+            ),
+        );
+        //
+        // Framework Settings
+        //
+        $settings = array(
+            'option_name'      => '_ovic_customize_options',
+            'menu_title'       => esc_html__( 'Theme Options', 'biolife' ),
+            'menu_type'        => 'submenu', // menu, submenu, options, theme, etc.
+            'menu_parent'      => 'ovic_addon-dashboard',
+            'menu_slug'        => 'ovic_theme_options',
+            'menu_position'    => 5,
+            'show_search'      => true,
+            'show_reset'       => true,
+            'show_footer'      => false,
+            'show_all_options' => true,
+            'ajax_save'        => true,
+            'sticky_header'    => false,
+            'save_defaults'    => true,
+            'framework_title'  => sprintf(
+                '%s <small>%s <a href="%s" target="_blank">%s</a></small>',
+                esc_html__( 'Theme Options', 'biolife' ),
+                esc_html__( 'by', 'biolife' ),
+                esc_url( 'https://kutethemes.com/' ),
+                esc_html__( 'Kutethemes', 'biolife' )
+            ),
+        );
+
+        OVIC_Options::instance( $settings, apply_filters( 'biolife_framework_theme_options', $options ) );
+    }
+
+    add_action( 'init', 'biolife_theme_options' );
+}

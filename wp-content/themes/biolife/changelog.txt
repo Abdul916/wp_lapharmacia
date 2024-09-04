@@ -1,0 +1,167 @@
+---------------------------------------------------------------------
+Version: 3.1.8
+---------------------------------------------------------------------
+
+Update:
+- Import data
+
+---------------------------------------------------------------------
+Version: 3.1.7
+---------------------------------------------------------------------
+
+This theme’s version has a lot of changes to be compatible with Elementor 3.19.x:
+- For new users (first time downloading and installing) and for users who do not use Elementor: Please ignore this notice, just install and import data or update the theme as usual.
+- For old users (who have used version 3.1.6 or earlier): Please submit a ticket so we can support in updating pages which are using Elementor.
+
+---------------------------------------------------------------------
+Version: 3.1.6
+---------------------------------------------------------------------
+
+Fixed:
+- The problem are the plugins that is missing and doesn’t exist anymore on WordPress to download them:
+Ovic Addon Toolkit, Ovic Import Demo, Ovic Product Bundle, Ovic Pinmap, Ovic Responsive WPBakery
+
+---------------------------------------------------------------------
+Version: 3.1.5
+---------------------------------------------------------------------
+
+Update:
+- Import data
+
+---------------------------------------------------------------------
+Version: 3.1.4
+---------------------------------------------------------------------
+
+Update:
+- Import data
+
+---------------------------------------------------------------------
+Version: 3.1.3 - 01-10-2023
+---------------------------------------------------------------------
+
+Fixed:
+- Duplicate Compare Button on Product List, Product Page
+
+---------------------------------------------------------------------
+Version: 3.1.2 - 03-08-2023
+---------------------------------------------------------------------
+
+Fixed:
+- Option Page Head Background in page does not work
+
+---------------------------------------------------------------------
+Version: 3.1.1 - 14-06-2023
+---------------------------------------------------------------------
+
+Update:
+- Revolution Slider v6.6.14
+- WooCommerce 7.8.0
+
+---------------------------------------------------------------------
+Version: 3.1.0 - 08-05-2023
+---------------------------------------------------------------------
+
+Fixed:
+- Some pages has star rating, layout is broken
+
+Update:
+- Import datas
+- Option count product views for Product page
+- Option Delivery Information, Payment Information for Product page
+- Improve slider is loading state ( hasn't broken layout )
+- Revolution Slider v6.6.13
+- WooCommerce 7.6.1
+
+-------------------------------------------------------------------
+Version: 3.0.9 - 29-03-2023
+---------------------------------------------------------------------
+
+Update:
+- Revolution Slider v6.6.11
+- WooCommerce 7.5.1
+
+---------------------------------------------------------------------
+Version: 3.0.8 - 02-02-2023
+---------------------------------------------------------------------
+
+Update:
+- Revolution Slider v6.6.10
+- WooCommerce 7.3.0
+
+---------------------------------------------------------------------
+Version: 3.0.7 - 15-11-2022
+---------------------------------------------------------------------
+
+Update:
+- Revolution Slider v6.6.5
+- WooCommerce 7.1.0
+
+Fixed:
+- Button 'X' to remove typing of input on Header search bar show not right
+
+---------------------------------------------------------------------
+Version: 3.0.6 - 01-10-2022
+---------------------------------------------------------------------
+
+Update:
+- Revolution Slider v6.5.31
+- Elementor\Plugin::$instance->db->is_built_with_elementor( $banner )
+-> Elementor\Plugin::$instance->documents->get( $banner )->is_built_with_elementor()
+
+---------------------------------------------------------------------
+Version: 3.0.5 - 26-07-2022
+---------------------------------------------------------------------
+
+Update:
+- WooCommerce 6.7.0
+- Slider Revolution 6.5.25
+
+---------------------------------------------------------------------
+Version: 3.0.4 - 30-05-2022
+---------------------------------------------------------------------
+
+Update:
+- WordPress 6.0
+- WooCommerce 6.5.0
+- Slider Revolution 6.5.21
+- Count for Cart Icon in Header Style 07 - mobile
+
+Fixed:
+- Option Typography - Font Size, Line Height does not work
+
+---------------------------------------------------------------------
+Version: 3.0.3 - 15-01-2022
+---------------------------------------------------------------------
+
+Update:
+- WooCommerce 6.1.0
+
+Fixed:
+- Double text "Login" in Header User
+
+---------------------------------------------------------------------
+Version: 3.0.2 - 21-12-2021
+---------------------------------------------------------------------
+
+Update:
+- Style for Elementor 3.5.0
+- Style of Wishlist loading icon
+- Style Orders Table
+- WooCommerce 6.0.0
+- Revolution 6.5.11
+- Some css for Dokan, WCFM Multi-Vendors
+- Some css for Mobile Version
+
+---------------------------------------------------------------------
+Version: 3.0.1 - 15-10-2021
+---------------------------------------------------------------------
+
+Update:
+- Style of Product Page
+- Plugin Revolution 6.5.9
+
+---------------------------------------------------------------------
+Version: 3.0.0
+---------------------------------------------------------------------
+
+Initial release

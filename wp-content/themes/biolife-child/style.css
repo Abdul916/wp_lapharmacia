@@ -1,0 +1,17 @@
+/*
+Theme Name: Biolife Child
+Theme URI: https://new-biolife.kutethemes.net/
+Template: biolife
+Author: Kutethemes
+Author URI: https://kutethemes.com/
+Description: Biolife theme Shop is a simple but modern responsive WordPress theme that oozes high-street sophistication. Its sharp lines and flat design style has been designed to be pixel perfect. Simply load your photography and you can have an online shop to matches the likes of Prada, Gucci and Yves St Laurent.
+Tags: two-columns,left-sidebar,custom-background,custom-colors,custom-header,custom-menu,featured-images,translation-ready
+Version: 3.1.8.1723008694
+Updated: 2024-08-07 05:31:34
+
+*/
+#billing_address_2_field, #billing_country_field, #billing_postcode_field, #billing_state_field, #billing_address_1_field{
+ 	display: none !important;
+ }
+
+
