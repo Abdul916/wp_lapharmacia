@@ -53,7 +53,7 @@ function translate_authentication_errors( $translated_text, $text, $domain ) {
             $translated_text = 'כתובת האימייל שלך לא תפורסם. ';
             break;
             case 'Required fields are marked %s':
-            $translated_text = ' שדות חובה מסומנים ב- %s  ';
+            $translated_text = 'שדות חובה מסומנים ב- %s  ';
             break;
 
         }
@@ -70,6 +70,9 @@ function lapharmacia_change_text( $translated_text, $text, $domain ) {
             $translated_text = 'רשימת המשאלות';
             break;
             case 'in stock':
+            $translated_text = 'במלאי';
+            break;
+            case 'In stock':
             $translated_text = 'במלאי';
             break;
             case 'Review':
@@ -199,22 +202,22 @@ function lapharmacia_change_text( $translated_text, $text, $domain ) {
             $translated_text = 'תכונה  ';
             break;
             case 'Account':
-            $translated_text = ' חֶשְׁבּוֹן ';
+            $translated_text = 'חֶשְׁבּוֹן ';
             break;
             case 'New':
-            $translated_text = ' חָדָשׁ ';
+            $translated_text = 'חָדָשׁ ';
             break;
             case 'Sale Off':
-            $translated_text = ' מְכִירָה כבוי  ';
+            $translated_text = 'מְכִירָה כבוי  ';
             break;
             case 'Off':
-            $translated_text = ' כבוי  ';
+            $translated_text = 'כבוי  ';
             break;
             case 'Hot':
-            $translated_text = ' חַם  ';
+            $translated_text = 'חַם  ';
             break;
             case 'Sold out':
-            $translated_text = ' הַכַּרטִיסִים אָזלוּ  ';
+            $translated_text = 'הַכַּרטִיסִים אָזלוּ  ';
             break;
             case 'Email':
             $translated_text = 'אֶלֶקטרוֹנִי  ';
@@ -228,23 +231,23 @@ function lapharmacia_change_text( $translated_text, $text, $domain ) {
             case '%1$s Reviews':
             $translated_text = '%1$sשֵׁביקורות ';
             break;
-            case ' Star':
+            case 'Star':
             $translated_text = 'כּוֹכָב ';
             break;
             case 'out of 5':
             $translated_text = 'מתוך  5  ';
             break;
             case 'We are sorry.':
-            $translated_text = ' אנו מצטערים.  ';
+            $translated_text = 'אנו מצטערים.  ';
             break;
             case 'The page you\'ve requested is not available.':
-            $translated_text = ' הדף שביקשת אינו זמין.  ';
+            $translated_text = 'הדף שביקשת אינו זמין.  ';
             break;
             case 'Return to Home':
-            $translated_text = ' חזור לבית  ';
+            $translated_text = 'חזור לבית  ';
             break;
             case 'Shop Product':
-            $translated_text = ' חנות מוצר ';
+            $translated_text = 'חנות מוצר ';
             break;
             case 'Search ...':
             $translated_text = 'חפש ...   ';
@@ -263,22 +266,22 @@ function lapharmacia_change_text( $translated_text, $text, $domain ) {
         $translated_text = 'המוצר הוסר  ';
     }
     if ( $text === 'View cart'  && $domain === 'ovic-addon-toolkit'){
-        $translated_text = ' צפה בעגלה  ';
+        $translated_text = 'צפה בעגלה  ';
     }
     if ( $text === 'Product has been added to cart!'  && $domain === 'ovic-addon-toolkit'){
-        $translated_text = ' המוצר התווסף לסל!  ';
+        $translated_text = 'המוצר התווסף לסל!  ';
     }
     if ( $text === 'Product has been added to wishlist!'  && $domain === 'ovic-addon-toolkit'){
-        $translated_text = ' המוצר התווסף לרשימת המשאלות!  ';
+        $translated_text = 'המוצר התווסף לרשימת המשאלות!  ';
     }
     if ( $text === 'Product has been removed from wishlist!'  && $domain === 'ovic-addon-toolkit'){
-        $translated_text = ' המוצר הוסר מרשימת המשאלות!  ';
+        $translated_text = 'המוצר הוסר מרשימת המשאלות!  ';
     }
     if ( $text === 'Browse Wishlist'  && $domain === 'ovic-addon-toolkit'){
-        $translated_text = ' עיין ברשימת המשאלות  ';
+        $translated_text = 'עיין ברשימת המשאלות  ';
     }
     if ( $text === 'Product added!'  && $domain === 'ovic-addon-toolkit'){
-        $translated_text = ' מוצר נוסף! ';
+        $translated_text = 'מוצר נוסף! ';
     }
     if ( $text === 'No products added to the wishlist'  && $domain === 'yith-woocommerce-wishlist'){
         $translated_text = 'לא נוספו מוצרים לרשימת המשאלות  ';
@@ -301,7 +304,9 @@ function lapharmacia_change_text( $translated_text, $text, $domain ) {
     if ( $text === 'In Stock'  && $domain === 'yith-woocommerce-wishlist'){
         $translated_text = 'במלאי';
     }
-
+    if ( $text === 'In stock'  && $domain === 'yith-woocommerce-wishlist'){
+        $translated_text = 'במלאי';
+    }
     if ( $text === 'Remove this product'  && $domain === 'yith-woocommerce-wishlist'){
         $translated_text = 'הסר את המוצר הזה  ';
     }
@@ -335,19 +340,73 @@ function lapharmacia_change_text( $translated_text, $text, $domain ) {
         $translated_text = 'מוצר נוסף! ';
     }
     if ( $text === 'No results'  && $domain === 'ajax-search-for-woocommerce'){
-        $translated_text = ' אין תוצאות  ';
+        $translated_text = 'אין תוצאות  ';
     }
     if ( $text === 'Product added to cart successfully'  && $domain === 'yith-woocommerce-wishlist'){
         $translated_text = 'המוצר נוסף לעגלת הקניות בהצלחה  ';
     }
 
+    if ( $text === 'Compare products' && $domain === 'yith-woocommerce-compare' ) {
+        $translated_text = 'השווה מוצרים';
+    }
+    if ( $text === 'In stock'  && $domain === 'yith-woocommerce-compare'){
+        $translated_text = 'במלאי';
+    }
+    if ( $text === 'Added'  && $domain === 'yith-woocommerce-compare'){
+        $translated_text = 'נוסף  ';
+    }
+    if ( $text === 'Product Comparison'  && $domain === 'yith-woocommerce-compare'){
+        $translated_text = 'השוואת מוצרים  ';
+    }
+    if ( $text === 'Compare'  && $domain === 'yith-woocommerce-compare'){
+        $translated_text = 'לְהַשְׁווֹת  ';
+    }
+    if ( $text === 'Close'  && $domain === 'yith-woocommerce-compare'){
+        $translated_text = 'לִסְגוֹר  ';
+    }
+    if ( $text === 'No products to compare'  && $domain === 'yith-woocommerce-compare'){
+        $translated_text = 'אין מוצרים להשוואה  ';
+    }
+    if ( $text === 'Remove'  && $domain === 'yith-woocommerce-compare'){
+        $translated_text = 'לְהַסִיר  ';
+    }
+    if ( $text === 'No products added in the compare table.'  && $domain === 'yith-woocommerce-compare'){
+        $translated_text = 'לא נוספו מוצרים בטבלת ההשוואה. ';
+    }
+    if ( $text === 'Image'  && $domain === 'yith-woocommerce-compare'){
+        $translated_text = 'תְמוּנָה  ';
+    }
+    if ( $text === 'Title'  && $domain === 'yith-woocommerce-compare'){
+        $translated_text = 'כּוֹתֶרֶת  ';
+    }
+    if ( $text === 'Price'  && $domain === 'yith-woocommerce-compare'){
+        $translated_text = 'מְחִיר  ';
+    }
+    if ( $text === 'Add to cart'  && $domain === 'yith-woocommerce-compare'){
+        $translated_text = 'הוסף לעגלה  ';
+    }
+    if ( $text === 'Description'  && $domain === 'yith-woocommerce-compare'){
+        $translated_text = 'תֵאוּר  ';
+    }
+    if ( $text === 'Sku'  && $domain === 'yith-woocommerce-compare'){
+        $translated_text = 'סקו  ';
+    }
+    if ( $text === 'Availability'  && $domain === 'yith-woocommerce-compare'){
+        $translated_text = 'זְמִינוּת  ';
+    }
+    if ( $text === 'Weight'  && $domain === 'yith-woocommerce-compare'){
+        $translated_text = 'מִשׁקָל  ';
+    }
+    if ( $text === 'Dimensions'  && $domain === 'yith-woocommerce-compare'){
+        $translated_text = 'מידות  ';
+    }
     return $translated_text;
 }
 
-
-// function update_wishlist_added_text() {
-//     update_option('yith_wcwl_product_added_text', 'מוצר נוסף! ');
-//     update_option('yith_wcwl_browse_wishlist_text', 'עיין ברשימת המשאלות  ');
-//     update_option('yith-wcqv-button-label', 'תצוגה מהירה  ');
-// }
-// add_action('init', 'update_wishlist_added_text');
+function update_wishlist_added_text() {
+    update_option('yith_wcwl_product_added_text', 'מוצר נוסף! '); // Product added!
+    update_option('yith_wcwl_browse_wishlist_text', 'עיין ברשימת המשאלות  '); // Browse Wishlist
+    update_option('yith-wcqv-button-label', 'תצוגה מהירה  '); // Quick View
+    update_option('yith_woocompare_table_text', ' השוו מוצרים  '); // Compare products
+}
+add_action('init', 'update_wishlist_added_text');
