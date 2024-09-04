@@ -277,6 +277,9 @@ function lapharmacia_change_text( $translated_text, $text, $domain ) {
     if ( $text === 'Browse Wishlist'  && $domain === 'ovic-addon-toolkit'){
         $translated_text = ' עיין ברשימת המשאלות  ';
     }
+    if ( $text === 'Product added!'  && $domain === 'ovic-addon-toolkit'){
+        $translated_text = ' מוצר נוסף! ';
+    }
     if ( $text === 'No products added to the wishlist'  && $domain === 'yith-woocommerce-wishlist'){
         $translated_text = 'לא נוספו מוצרים לרשימת המשאלות  ';
     }
@@ -334,8 +337,17 @@ function lapharmacia_change_text( $translated_text, $text, $domain ) {
     if ( $text === 'No results'  && $domain === 'ajax-search-for-woocommerce'){
         $translated_text = ' אין תוצאות  ';
     }
+    if ( $text === 'Product added to cart successfully'  && $domain === 'yith-woocommerce-wishlist'){
+        $translated_text = 'המוצר נוסף לעגלת הקניות בהצלחה  ';
+    }
 
     return $translated_text;
 }
 
 
+// function update_wishlist_added_text() {
+//     update_option('yith_wcwl_product_added_text', 'מוצר נוסף! ');
+//     update_option('yith_wcwl_browse_wishlist_text', 'עיין ברשימת המשאלות  ');
+//     update_option('yith-wcqv-button-label', 'תצוגה מהירה  ');
+// }
+// add_action('init', 'update_wishlist_added_text');
