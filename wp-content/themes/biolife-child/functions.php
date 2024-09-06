@@ -250,8 +250,8 @@ function lapharmacia_change_text( $translated_text, $text, $domain ) {
             case 'Shop Product':
             $translated_text = 'חנות מוצר ';
             break;
-            case 'Search ...':
-            $translated_text = 'חפש ...   ';
+            case 'Search':
+            $translated_text = 'חפש  ';
             break;
 
         }
