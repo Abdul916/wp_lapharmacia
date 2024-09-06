@@ -127,10 +127,11 @@ function lapharmacia_change_text( $translated_text, $text, $domain ) {
             $translated_text = 'במלאי';
             break;
             case 'Availability':
-            $translated_text = 'זמינות';
+            $translated_text = 'זמינות  ';
             break;
             case 'Availability: ':
-            $translated_text = 'זְמִינוּת :  ';
+            // $translated_text = 'זְמִינוּת :  ';
+            $translated_text = 'זמינות : ';
             break;
             case 'Unlimit':
             $translated_text = 'ללא הגבלה';
@@ -169,7 +170,7 @@ function lapharmacia_change_text( $translated_text, $text, $domain ) {
             $translated_text = 'אחרון  ';
             break;
             case 'Popularity':
-            $translated_text = 'פּוֹפּוּלָרִיוּת  ';
+            $translated_text = 'פופולריות  ';
             break;
             case 'Average Rating':
             $translated_text = 'דירוג ממוצע  ';
@@ -181,7 +182,7 @@ function lapharmacia_change_text( $translated_text, $text, $domain ) {
             $translated_text = 'מחיר: גבוה עד נמוך  ';
             break;
             case 'Sale':
-            $translated_text = 'מְכִירָה  ';
+            $translated_text = 'מכירה  ';
             break;
             case 'On-Sale':
             $translated_text = 'במבצע  ';
@@ -205,7 +206,7 @@ function lapharmacia_change_text( $translated_text, $text, $domain ) {
             $translated_text = 'חֶשְׁבּוֹן ';
             break;
             case 'New':
-            $translated_text = 'חָדָשׁ ';
+            $translated_text = 'חדש  ';
             break;
             case 'Sale Off':
             $translated_text = 'מְכִירָה כבוי  ';
@@ -260,7 +261,7 @@ function lapharmacia_change_text( $translated_text, $text, $domain ) {
         $translated_text = 'תפריט ראשי ';
     }
     if ( $text === 'Notice!'  && $domain === 'ovic-addon-toolkit'){
-        $translated_text = 'הוֹדָעָה!  ';
+        $translated_text = 'הודעה  ';
     }
     if ( $text === 'Product Removed'  && $domain === 'ovic-addon-toolkit'){
         $translated_text = 'המוצר הוסר  ';
@@ -359,7 +360,8 @@ function lapharmacia_change_text( $translated_text, $text, $domain ) {
         $translated_text = 'השוואת מוצרים  ';
     }
     if ( $text === 'Compare'  && $domain === 'yith-woocommerce-compare'){
-        $translated_text = 'לְהַשְׁווֹת  ';
+        // $translated_text = 'לְהַשְׁווֹת  ';
+        $translated_text = 'להשוות  ';
     }
     if ( $text === 'Close'  && $domain === 'yith-woocommerce-compare'){
         $translated_text = 'לִסְגוֹר  ';
@@ -392,7 +394,7 @@ function lapharmacia_change_text( $translated_text, $text, $domain ) {
         $translated_text = 'סקו  ';
     }
     if ( $text === 'Availability'  && $domain === 'yith-woocommerce-compare'){
-        $translated_text = 'זְמִינוּת  ';
+        $translated_text = 'זמינות  ';
     }
     if ( $text === 'Weight'  && $domain === 'yith-woocommerce-compare'){
         $translated_text = 'מִשׁקָל  ';
@@ -403,10 +405,10 @@ function lapharmacia_change_text( $translated_text, $text, $domain ) {
     return $translated_text;
 }
 
-function update_wishlist_added_text() {
-    update_option('yith_wcwl_product_added_text', 'מוצר נוסף! '); // Product added!
-    update_option('yith_wcwl_browse_wishlist_text', 'עיין ברשימת המשאלות  '); // Browse Wishlist
-    update_option('yith-wcqv-button-label', 'תצוגה מהירה  '); // Quick View
-    update_option('yith_woocompare_table_text', ' השוו מוצרים  '); // Compare products
-}
-add_action('init', 'update_wishlist_added_text');
+// function update_wishlist_added_text() {
+//     update_option('yith_wcwl_product_added_text', 'מוצר נוסף! '); // Product added!
+//     update_option('yith_wcwl_browse_wishlist_text', 'עיין ברשימת המשאלות  '); // Browse Wishlist
+//     update_option('yith-wcqv-button-label', 'תצוגה מהירה  '); // Quick View
+//     update_option('yith_woocompare_table_text', ' השוו מוצרים  '); // Compare products
+// }
+// add_action('init', 'update_wishlist_added_text');

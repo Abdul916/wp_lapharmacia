@@ -13,13 +13,15 @@ document.addEventListener('DOMContentLoaded', function() {
 document.addEventListener('DOMContentLoaded', function() {
     var compareLink = document.querySelector('.woocommerce.product.compare-button .compare.button');
     if (compareLink) {
-        compareLink.textContent = 'לְהַשְׁווֹת   ';
+        // compareLink.textContent = 'לְהַשְׁווֹת   ';
+        compareLink.textContent = 'להשוות  ';
     }
 });
 document.addEventListener('DOMContentLoaded', function() {
     var categoryTitle = document.querySelector('.product_meta .posted_in .title');
     if (categoryTitle) {
-        categoryTitle.textContent = 'קָטֵגוֹרִיָה :   ';
+        // categoryTitle.textContent = 'קָטֵגוֹרִיָה :';
+        categoryTitle.textContent = 'קטגוריה :';
     }
 });
 
