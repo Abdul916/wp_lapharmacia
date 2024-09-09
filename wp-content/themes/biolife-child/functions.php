@@ -67,92 +67,91 @@ function lapharmacia_change_text( $translated_text, $text, $domain ) {
     if ( $domain === 'biolife' ) {
         switch ( $text ) {
             case 'Wishlist':
-            $translated_text = 'רשימת המשאלות';
+            $translated_text = 'מעודפים  ';
             break;
             case 'in stock':
-            $translated_text = 'במלאי';
+            $translated_text = 'במלאי ';
             break;
             case 'In stock':
-            $translated_text = 'במלאי';
+            $translated_text = 'במלאי ';
             break;
             case 'Review':
-            $translated_text = 'סקירה';
+            $translated_text = 'סקירה ';
             break;
             case 'Reviews':
-            $translated_text = 'סקירות';
+            $translated_text = 'סקירות ';
             break;
             case 'All products':
-            $translated_text = 'כל המוצרים';
+            $translated_text = 'כל המוצרים ';
             break;
             case 'Show %s products':
-            $translated_text = 'הצג %s מוצרים';
+            $translated_text = 'הצג %s מוצרים ';
             break;
             case 'Show All':
-            $translated_text = 'הצג הכל';
+            $translated_text = 'הצג הכל ';
             break;
             case 'item':
-            $translated_text = 'פריט';
+            $translated_text = 'פריט ';
             break;
             case 'Go':
-            $translated_text = 'לך';
+            $translated_text = 'לך ';
             break;
             case 'My Bag':
-            $translated_text = 'התיק שלי';
+            $translated_text = 'התיק שלי ';
             break;
             case 'My Cart':
-            $translated_text = 'העגלה שלי';
+            $translated_text = 'העגלה שלי ';
             break;
             case 'Product Code':
-            $translated_text = 'קוד מוצר';
+            $translated_text = 'קוד מוצר ';
             break;
             case 'N/A':
-            $translated_text = 'לא זמין';
+            $translated_text = 'לא זמין ';
             break;
             case 'Category':
-            $translated_text = 'קטגוריה';
+            $translated_text = 'קטגוריה ';
             break;
             case 'Category:':
             $translated_text = 'קטגוריה :';
             break;
             case 'Categories':
-            $translated_text = 'קטגוריות';
+            $translated_text = 'קטגוריות ';
             break;
             case 'Tag':
-            $translated_text = 'תג';
+            $translated_text = 'תג ';
             break;
             case 'Tags':
-            $translated_text = 'תגים';
+            $translated_text = 'תגים ';
             break;
             case 'In Stock':
-            $translated_text = 'במלאי';
+            $translated_text = 'במלאי ';
             break;
             case 'Availability':
             $translated_text = 'זמינות  ';
             break;
             case 'Availability: ':
-            // $translated_text = 'זְמִינוּת :  ';
             $translated_text = 'זמינות : ';
             break;
             case 'Unlimit':
-            $translated_text = 'ללא הגבלה';
+            $translated_text = 'ללא הגבלה ';
             break;
             case 'Sold:':
             $translated_text = 'נמכר:';
             break;
             case 'Delivery & Return':
-            $translated_text = 'משלוח והחזרה';
+            $translated_text = 'משלוח והחזרה ';
             break;
             case 'Prev':
-            $translated_text = 'הקודם';
+            $translated_text = 'הקודם ';
             break;
             case 'Next':
             $translated_text = 'הבא';
             break;
             case 'Available':
-            $translated_text = 'זמין';
+            $translated_text = 'זמין ';
             break;
             case 'Already Sold':
-            $translated_text = 'כבר נמכר';
+            $translated_text = 'כבר נמכר ';
             break;
             case 'Main Menu':
             $translated_text = 'תפריט ראשי  ';
@@ -200,10 +199,10 @@ function lapharmacia_change_text( $translated_text, $text, $domain ) {
             $translated_text = 'תכונה  ';
             break;
             case 'Home':
-            $translated_text = 'תכונה  ';
+            $translated_text = 'בית  ';
             break;
             case 'Account':
-            $translated_text = 'חֶשְׁבּוֹן ';
+            $translated_text = ' חשבון ';
             break;
             case 'New':
             $translated_text = 'חדש  ';
@@ -227,7 +226,7 @@ function lapharmacia_change_text( $translated_text, $text, $domain ) {
             $translated_text = 'שֵׁם  ';
             break;
             case '%1$s Review':
-            $translated_text = '%1$sסקירה';
+            $translated_text = '%1$sסקירה ';
             break;
             case '%1$s Reviews':
             $translated_text = '%1$sשֵׁביקורות ';
