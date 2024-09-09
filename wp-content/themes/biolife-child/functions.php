@@ -190,7 +190,7 @@ function lapharmacia_change_text( $translated_text, $text, $domain ) {
             $translated_text = 'תכונה  ';
             break;
             case 'Top':
-            $translated_text = 'תכונה  ';
+            $translated_text = '';
             break;
             case 'Sidebar':
             $translated_text = 'תכונה  ';
